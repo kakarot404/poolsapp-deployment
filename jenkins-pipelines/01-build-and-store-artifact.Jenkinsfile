@@ -80,10 +80,9 @@ pipeline {
                 script {
                     // Install frontend dependencies
                     sh '''
-                        echo " Using Following steps, this stage would be done, NOT implmenting due lack of resources "
-                        echo " export NVM_DIR="$HOME/.nvm" "
-                        echo " [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm "
-                        echo " cd ${FRONTEND_DIR} && npm install"
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm
+                        cd ${FRONTEND_DIR} && npm install
                     '''
                 }
             }
@@ -94,10 +93,9 @@ pipeline {
                 script {
                     // Install backend dependencies
                     sh '''
-                        echo " Using Following steps, this stage would be done, NOT implmenting due lack of resources "
-                        echo " export NVM_DIR="$HOME/.nvm" "
-                        echo " [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm "
-                        echo " cd ${BACKEND_DIR} && npm install"
+                        export NVM_DIR="$HOME/.nvm" 
+                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm 
+                        cd ${BACKEND_DIR} && npm install"
                     '''
                 }
             }
@@ -108,10 +106,9 @@ pipeline {
                 script {
                     // Build the Angular app (production mode)
                     sh '''
-                        echo " Using Following steps, this stage would be done, NOT implmenting due lack of resources "
-                        echo " export NVM_DIR="$HOME/.nvm" "
-                        echo " [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm "
-                        echo " cd ${FRONTEND_DIR} && npm run build"
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Loading nvm
+                        cd ${FRONTEND_DIR} && npm run build
                     '''
                 }
             }
