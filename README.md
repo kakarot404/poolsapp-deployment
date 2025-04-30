@@ -35,8 +35,9 @@ poolsapp-deployment/
 │   └── webhook-trigger-example.json      # Optional: payload for webhook simulation
 │
 └── README.md                             # This documentation
-
+```
 ---
+
 
 ## 🔧 Objective
 
@@ -96,26 +97,26 @@ Deploy the zipped artifact to the EC2 target server.
 
 ### Reference setup notes and scripts:
 
-    jenkins-ec2-instance-prep-note.md – Jenkins EC2 setup instructions
-
-    update-jenkins-url.sh – Script to update Jenkins URL in jobs
-
-    cronjob-setup-for-jenkins-location.md – Cron setup for Jenkins persistence or watchdog
+- `jenkins-ec2-instance-prep-note.md` – Jenkins EC2 setup instructions
+- `update-jenkins-url.sh` – Script to update Jenkins URL in jobs
+- `cronjob-setup-for-jenkins-location.md` – Cron setup for Jenkins persistence or watchdog
 
 ---
 
 ## 🚀 Triggering Pipelines
 
-    Webhooks or manual triggers are supported.
+Webhooks or manual triggers are supported.
 
-    Recommended setup: GitHub → Jenkins Multibranch Pipeline
+Recommended setup: GitHub → Jenkins Multibranch Pipeline
 
---- 
+---
 
 ## 🧪 Branching Strategy
-    Branch	    Environment	            Purpose
-    main	    Production	            Live deployment
-    dev	        Development	            Active development and testing
+
+| Branch | Environment  | Purpose                             |
+|--------|--------------|-------------------------------------|
+| `main` | Production   | Live deployment                    |
+| `dev`  | Development  | Active development and testing     |
 
 Jenkins pipeline logic can be configured to deploy based on the branch that triggers the build.
 
@@ -126,9 +127,7 @@ Jenkins pipeline logic can be configured to deploy based on the branch that trig
 Security is central to this setup, and multiple layers are employed:
 
 - **[Secrets Manager Integration](./jenkins-pipelines/AWS-secrets-manager-integration.md)**: Jenkins pipelines retrieve secrets such as MongoDB credentials and IAM role ARNs securely at runtime.
-
 - **[EC2 Role-Based Access Control](./aws/ec2-rbac-and-roles.md)**: Describes IAM roles, trust policies, and permission boundaries between Jenkins, Terraform, and AWS resources.
-
 - **[Security Groups Overview](./aws/security-groups.md)**: Inbound/outbound traffic rules for Jenkins and app EC2 instances, with justifications for each rule.
 
 ---
@@ -137,11 +136,11 @@ Security is central to this setup, and multiple layers are employed:
 
 All credentials (e.g., DB passwords, tokens) are stored securely in AWS Secrets Manager and accessed during Jenkins builds.
 
-### ➡️ See full documentation: AWS Secrets Integration
+### ➡️ See full documentation: [AWS Secrets Integration](./jenkins-pipelines/AWS-secrets-manager-integration.md)
 
 ### Example usage within pipeline:
-```
+
+```groovy
 environment {
-    MONGO_SECRET = sh(script: "aws secretsmanager get-secret-value --secret-id mongo-app-creds --query \ SecretString --output text", returnStdout: true).trim()
-    }
+    MONGO_SECRET = sh(script: "aws secretsmanager get-secret-value --secret-id mongo-app-creds --query 'SecretString' --output text", returnStdout: true).trim()
 ```
