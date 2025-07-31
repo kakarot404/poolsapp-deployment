@@ -126,7 +126,7 @@ Jenkins pipeline logic can be configured to deploy based on the branch that trig
 
 Security is central to this setup, and multiple layers are employed:
 
-- **[Secrets Manager Integration](./jenkins-pipelines/AWS-secrets-manager-integration.md)**: Jenkins pipelines retrieve secrets such as MongoDB credentials and IAM role ARNs securely at runtime.
+- **[Secrets Manager Integration](./jenkins-pipelines/AWS-secretsManager-integration.md)**: Jenkins pipelines retrieve secrets such as MongoDB credentials and IAM role ARNs securely at runtime.
 - **[EC2 Role-Based Access Control](./aws/ec2-rbac-and-roles.md)**: Describes IAM roles, trust policies, and permission boundaries between Jenkins, Terraform, and AWS resources.
 - **[Security Groups Overview](./aws/security-groups.md)**: Inbound/outbound traffic rules for Jenkins and app EC2 instances, with justifications for each rule.
 
