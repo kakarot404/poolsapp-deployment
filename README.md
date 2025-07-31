@@ -1,10 +1,10 @@
-# 🛠️ PoolsApp – CI/CD Deployment using Jenkins & AWS
+# Automating OpenSource App Deployment via Jenkins Pipelines & AWS Infrastructure
 
 This repository documents the end-to-end automation of deploying the open-source [PoolsApp](https://github.com/mrpool404/poolsapp) using Jenkins pipelines and various AWS services. It simulates a real-world enterprise deployment setup with multi-stage CI/CD workflows, artifact management, infrastructure provisioning, and secrets handling.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 poolsapp-deployment/
@@ -39,7 +39,7 @@ poolsapp-deployment/
 ---
 
 
-## 🔧 Objective
+## Objective
 
 The main goals of this project:
 
@@ -52,7 +52,7 @@ The main goals of this project:
 
 ---
 
-## 🔄 CI/CD Pipelines Overview
+## CI/CD Pipelines Overview
 
 ### 1. `00-create-target-ec2.Jenkinsfile`
 
@@ -93,7 +93,7 @@ Deploy the zipped artifact to the EC2 target server.
 
 ---
 
-## 🌿 Environment Prep Notes
+## Environment Prep Notes
 
 ### Reference setup notes and scripts:
 
@@ -103,7 +103,7 @@ Deploy the zipped artifact to the EC2 target server.
 
 ---
 
-## 🚀 Triggering Pipelines
+## Triggering Pipelines
 
 Webhooks or manual triggers are supported.
 
@@ -111,7 +111,7 @@ Recommended setup: GitHub → Jenkins Multibranch Pipeline
 
 ---
 
-## 🧪 Branching Strategy
+## Branching Strategy
 
 | Branch | Environment  | Purpose                             |
 |--------|--------------|-------------------------------------|
@@ -122,7 +122,7 @@ Jenkins pipeline logic can be configured to deploy based on the branch that trig
 
 ---
 
-## 🔐 Security & Access Control
+## Security & Access Control
 
 Security is central to this setup, and multiple layers are employed:
 
@@ -132,7 +132,7 @@ Security is central to this setup, and multiple layers are employed:
 
 ---
 
-## 🔐 Secrets Handling
+## Secrets Handling
 
 All credentials (e.g., DB passwords, tokens) are stored securely in AWS Secrets Manager and accessed during Jenkins builds.
 
